@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TickeTz</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="tptpstil.css">
-</head>
+    <link rel="stylesheet" href="../css/tptpstil.css">
+     <link rel="icon" href="../images/logo tab.png">
+    <script src="../js/tptpskripte.js" defer></script>
 
+</head>
 
 <body>
 
@@ -15,14 +16,14 @@
     
     <nav class="nav">
 
-   <div class="logo"><a href="index.html">  <img src="images/svjetli-logo.png" id="logo">
+   <div class="logo"><a href="index.html">  <img src="../images/svjetli-logo.png"  alt="Logo" id="logo">
    </a></div>
 
     <ul class="nav2">
 
       <li><a href="index.html" class="aktivna">Početna</a></li>
 
-      <li><a href="Sadrzaj.html">Sadržaj</a></li>
+      <li><a href="sadrzaj.html">Sadržaj</a></li>
 
       <li><a href="kontakt.html">Kontakt</a></li>
 
@@ -51,13 +52,16 @@
         
 </li>
    
-  </nav></header>
-
-
+  </nav>
+</header>
 
 
   <section class="interaktivno">
-        <h2>🎵 Specijalna Akcija - Ljetni Sevdah Festival!</h2>
+        <h2><svg class="animirani-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <text x="50" y="57" text-anchor="middle" font-size="35">🎵</text>
+  </svg> 
+         Specijalna Akcija - Ljetni Sevdah Festival!</h2>
+
         <p>Karte su u prodaji! Iskoristi popust od 30%</p>
 
         <div class="countdown">
@@ -81,7 +85,135 @@
 
         <button class="kupi-kartu"><a href="#">  Kupi Kartu Sada!</a></button>
         </section>
+
+        <section class="statistika">
+<div class="stat-kartica" id="događaja">
+  <span class="stat-broj">0+</span>
+  <span class="stat-tekst">Događaji ove godine</span>
+</div>
+
+ <div class="stat-kartica" id="lokacija">
+    <span class="stat-broj">0+</span>
+    <span class="stat-tekst">Lokacija</span>
+  </div>
+
+  <div class="stat-kartica" id="posjetilaca">
+    <span class="stat-broj">0+</span>
+    <span class="stat-tekst">Zadovoljnih posjetilaca</span>
+  </div>
+
+        </section>
+
+<div class="page-wrapper">
+<nav class="side-nav">
+  <h2 class="side-nav-naslov">Filtriraj događaje</h2>
+  <ul>
+    <li><a href="#" class="filter-linkova sve" data-filter="sve">🎯 Svi događaji</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="koncerti">🎵 Koncerti</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="pozoriste">🎭 Pozorište</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="filmovi">🎬 Filmovi</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="festivali">🎪 Festivali</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="sport">⚽ Sport</a></li>
+    <li><a href="#" class="filter-linkova" data-filter="ostalo">📌 Ostalo</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h2 class="naslov-maina">Nadolazeći događaji</h2>
+   <section class="kartice-grid" id="kartice-kontejner">
+    <template class="template-kartice">
+  <article class="kartica">
+    <img src="../images/sevdah.png" alt="">
+    <span class="kategorija-badge">🎵 Koncerti</span> 
+    <div class="kartica-info">
+      <h3 class="kartica-naslov">Sevdah</h3>
+      <p class="kartica-datum">25.11.2026</p>
+      <p class="kartica-opis">koncert sevdaha</p>
+      <a href="#"><button class="dugme-kartice">Pogledaj više</button></a>
+    </div>
+  </article>
+  </template>
+  </article>
+  </section>
+
   
-    <script src="tptpskripte.js"></script>
+
+</main>
+<aside class="mapa">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45283.87!2d18.6786!3d44.5342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e839c0c2f5555%3A0x400ad50861e0ab0!2sTuzla!5e0!3m2!1sbs!2sba!4v1234567890"
+        width="100%" 
+        height="250" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        title="Mapa Tuzle">
+      </iframe>
+      <div class="aside-tekst">
+        <h3>Pronađite događaje u blizini</h3>
+        <p>Otkrijte nevjerovatne lokalne događaje koji se dešavaju u Tuzli i okolini. Sve lokacije su lako dostupne javnim prevozom.</p>
+      </div>
+    </aside>
+</div>
+
+
+<footer class="sajt-footer">
+  <div class="footer-inner">
+ 
+    <div class="footer-brand">
+      <span class="footer-logo-dot"></span>
+      <span class="footer-logo-name">TicketTz</span>
+      <p class="footer-tagline">Web lokacija napravljena u Tuzli</p>
+    </div>
+ 
+    <nav class="footer-links">
+      <a href="index.html">Početna</a>
+      <a href="sadrzaj.html">Sadržaj</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+ 
+    <div class="footer-social">
+      <a href="https://instagram.com" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://github.com/arminavdic1-ctrl/Grupa52-TPTP-2026" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+    </div>
+ 
+    <div class="footer-divider"></div>
+ 
+    <div class="footer-authors">
+      <div class="footer-author">
+        <span class="author-initials">AA</span>
+        <div>
+          <p class="author-name">Avdić Armin</p>
+          <p class="author-role">HTML &amp; CSS</p>
+        </div>
+      </div>
+      <div class="footer-author">
+        <span class="author-initials">HN</span>
+        <div>
+          <p class="author-name">Huseinbašić Nedim</p>
+          <p class="author-role">HTML &amp; CSS</p>
+        </div>
+      </div>
+      <div class="footer-author">
+        <span class="author-initials">SN</span>
+        <div>
+          <p class="author-name">Silajdžić Nedim</p>
+          <p class="author-role">JavaScript &amp; Logika</p>
+        </div>
+      </div>
+    </div>
+ 
+    <p class="footer-copy">&copy; 2026 Grupa52 &mdash; TPTP, Univerzitet u Tuzli. Sva prava pridržana.</p>
+ 
+  </div>
+</footer>
+
 </body>
 </html>
