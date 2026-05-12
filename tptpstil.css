@@ -192,3 +192,115 @@ body {
               color 0.4s ease, 
               border-color 0.4s ease;
 }
+
+.sadrzajnav{
+	background:white;
+	position:fixed;
+	top:70px;
+	height:100px;
+	display:flex;
+	flex-direction: row;
+	justify-content:center;
+	align-items:center;
+	list-style-type: none;
+	border:1px solid lightgray;
+	border-radius:40px;
+	margin: 0;
+	padding: 0 20px;
+	left:50%;
+	min-width: fit-content;
+	gap:25px;
+	 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.sadrzajnav a{
+	text-decoration:none;
+	color:skyblue;
+	font-size:20px;
+	
+}
+.sadrzajnav a:hover{
+	color:black;
+	
+	}
+.tabela
+{
+	display:flex;
+	justify-content:center;
+
+}
+
+table, th, td {
+  border: 1px solid gray;
+  border-collapse:collapse;
+  
+}
+th
+{background:skyblue;
+}
+tr:nth-child(even){background:lightgray;}
+.zeleno{color:green;}
+.zuta{color:yellow;}
+.crveno{color:red;}
+	.podnaslov{
+		display:flex;
+	border:5px  inset;
+	width:fit-content;
+	color:lightblue;
+}
+.babo{
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	width: 100% !important;
+	align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+.babo li{
+border-radius:20px;
+flex: 1;
+min-width: 200px;
+list-style: none;
+}
+#lista ul.babo > li:nth-child(odd) { background-color: skyblue; }
+#lista ul.babo > li:nth-child(even) { background-color: lightgray; }
+summary h3 {
+display: inline;}
+summary{padding: 20px 15px;}
+
+
+.galerija {
+    display: flex;
+    flex-wrap: wrap;     
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+}
+.galerija figure {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 0;
+    padding: 15px;        
+    width: 320px;          
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.galerija img {
+    width: 100%;          
+    height: 200px;
+    object-fit: cover;    
+    border-radius: 8px;
+}
+.galerija figcaption {
+    padding-top: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #444;
+    font-style: italic;
+}
+.galerija figure:hover {
+    transform: translateY(-10px); 
+    border-color: skyblue;       
+}  /* css kod za glaeriju vecinski napravljen od strane ai agenta sa debbugingom od strane mene */
