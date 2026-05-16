@@ -3,8 +3,15 @@
 <head>
 <meta charset='UTF-8'>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="tptpstil.css">
-  <title>Tickettz</title>
+<!-- Učitavanje EmailJS biblioteke za slanje emailova iz browsera -->
+<!-- Inicijalizacija EmailJS servisa pomoću javnog API ključa -->
+ <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("NbojRzXj6ckbx4cuJ");
+</script>
+  <link rel="stylesheet" href="tptpstil/tptpstil.css">
+    <link rel="icon" href="../images/logo.png">
+  <title>TickeTz</title>
 </head>
 
 <body>
@@ -13,44 +20,112 @@
     
     <nav class="nav">
 
-   <div class="logo"><a href="index.html">  <img src="svjetli-logo.png" id="svjetli-logo">
-  <!--<img src="tamni-logo.png" id="tamni-logo">-->
-   </a></div>
+   <div class="logo">
+        <a href="index.html">
+          <img src="../images/svjetli-logo.png" alt="Logo" id="logo">
+        </a>
+      </div>
 
-    <ul class="nav2">
+     
+      <div class="mob-desno">
+        <button class="korpa-dugme" id="korpa-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="korpa-broj" id="korpa-broj">0</span>
+        </button>
 
-      <li><a href="index.html" class="aktivna">Početna</a></li>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-      <li><a href="Sadrzaj.html">Sadržaj</a></li>
+      
+      <ul class="nav2" id="nav2">
+        <li><a href="index.html">Početna</a></li>
+        <li><a href="sadrzaj.html">Sadržaj</a></li>
+        <li><a href="kontakt.html" class="aktivna">Kontakt</a></li>
 
-      <li><a href="#">Kontakt</a></li>
+        <li class="korpa">
+          <button class="korpa-dugme" id="korpa-toggle-desktop">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span class="korpa-broj" id="korpa-broj-desktop">0</span>
+          </button>
+        </li>
 
-      <li class="github-icon"><a href="https://github.com/arminavdic1-ctrl/Grupa52-TPTP-2026" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
-    </svg></a></li>
+        <li class="github-icon">
+          <a href="https://github.com/arminavdic1-ctrl/Grupa52-TPTP-2026" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+            </svg>
+          </a>
+        </li>
 
-      <li>
-         <label class="dark-mode-label" for="dark-mode-toggle">
-    <input type="checkbox" id="dark-mode-toggle">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path class="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      <circle class="sun-circle" cx="12" cy="12" r="5"/>
-      <g class="sun-rays">
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </g>
+        <li>
+          <label class="dark-mode-label" for="dark-mode-toggle">
+            <input type="checkbox" id="dark-mode-toggle">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path class="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              <circle class="sun-circle" cx="12" cy="12" r="5"/>
+              <g class="sun-rays">
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </g>
+            </svg>
+          </label>
+        </li>
+      </ul>
+
+      <div class="mob-overlay" id="mob-overlay"></div>
+
+     
+      <div class="mob-meni" id="mob-meni">
+        <a href="index.html">Početna</a>
+        <a href="sadrzaj.html">Sadržaj</a>
+        <a href="kontakt.html">Kontakt</a>
+         <a href="https://github.com/arminavdic1-ctrl/Grupa52-TPTP-2026" target="_blank" class="mob-github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" style="fill:currentColor; vertical-align:middle; margin-right:8px;">
+      <path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM252.8 8c-138.7 0-244.8 105.3-244.8 244 0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1 100-33.2 167.8-128.1 167.8-239 0-138.7-112.5-244-251.2-244zM105.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
     </svg>
-  </label>
-        
-</li>
-   
-  </nav></header>
+  </a>
+        <div class="mob-meni-dark">
+          <label class="dark-mode-label" for="dark-mode-toggle-mob">
+            <input type="checkbox" id="dark-mode-toggle-mob">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path class="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              <circle class="sun-circle" cx="12" cy="12" r="5"/>
+              <g class="sun-rays">
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </g>
+            </svg>
+          </label>
+        </div>
+      </div>
+  </nav>
+</header>
   
   
    <label for="Kontakt"><h3>FINALIZIRAJTE SVOJU KUPOVINU</h3></label>
@@ -58,33 +133,41 @@
 
   <form>
     <div class="info">
-      <label for="ime">Ime:</label>
-      <input type="text" id="ime" name="Ime" required>
+      <label for="ime">*Ime:</label>
+      <input type="text" id="ime" name="Ime">
+      <small class="error"></small>
 
-      <label for="prezime">Prezime:</label>
-      <input type="text" id="prezime" name="Prezime" required>
+      <label for="prezime">*Prezime:</label>
+      <input type="text" id="prezime" name="Prezime">
+      <small class="error"></small>
 
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="E-mail" required>
+      <label for="email">*E-mail:</label>
+      <input type="text" id="email" name="E-mail">
+      <small class="error"></small>
 
-      <label for="tel">Telefon:</label>
+      <label for="tel">*Telefon:</label>
       <input type="tel" id="tel" name="Telefon">
+      <small class="error"></small>
     </div>
 	
  
     <div class="kreditna">
-      <label for="BrojK">Broj Kartice:</label>
+      <label for="BrojK">*Broj Kartice:</label>
 
-      <input type="text" id="BrojK" name="Broj Kartice" pattern="[0-9]{13,16}" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" required>
+      <input type="text" id="BrojK" name="Broj Kartice" inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx">
+      <small class="error"></small>
 	
-      <label for="datum">Datum Isteka:</label>
-      <input type="month" id="datum" name="Datum Isteka" required>
+      <label for="datum">*Datum Isteka:</label>
+      <input type="month" id="datum" name="Datum Isteka">
+      <small class="error"></small>
 	
-      <label for="cvv">CVV/CVC:</label>
-      <input type="text" id="cvv" name="CVV/CVC kod" pattern="[0-9]{3,4}" inputmode="numeric" placeholder="xxxx" required>
+      <label for="cvv">*CVV/CVC:</label>
+      <input type="text" id="cvv" name="CVV/CVC kod" inputmode="numeric" placeholder="xxxx">
+      <small class="error"></small>
 	
-      <label for="bankaime">Ime vlasnika kartice:</label>
-      <input type="text" id="bankaime" name="Ime vlasnika kartice" required>
+      <label for="bankaime">*Ime vlasnika kartice:</label>
+      <input type="text" id="bankaime" name="Ime vlasnika kartice">
+      <small class="error"></small>
     </div>
 	
 	
@@ -171,9 +254,31 @@
   </div>
 </footer>
 
-  
-  
-  
-  
+<div class="korpa-overlay" id="korpa-overlay"></div>
+
+<aside class="korpa-panel" id="korpa-panel">
+  <div class="korpa-header">
+    <h2>Vaša korpa</h2>
+    <button class="korpa-zatvori" id="korpa-zatvori">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="korpa-lista" id="korpa-lista">
+    <li class="korpa-prazna">Korpa je prazna.</li>
+  </ul>
+
+  <div class="korpa-footer">
+    <div class="korpa-ukupno">
+      Ukupno: <strong id="korpa-ukupno">0,00 KM</strong>
+    </div>
+    <a href="kontakt.html" class="korpa-kupi">Naruči</a>
+  </div>
+</aside>
+<script src="tptpskripta/tptpskripte.js"></script>
   </body>
   </html>

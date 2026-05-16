@@ -89,10 +89,10 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 }
 
 .dark {
-  --bg: #1a1a2e;
-  --text: #f1f1f1;
-  --nav-bg: #1a1a2e;
-  --border: #6b646e;
+  --bg: var(--boja-tamna);
+  --text: white;
+  --nav-bg:var(--boja-tamna);
+  --border: #646e64;
 }
 
 #dark-mode-toggle {
@@ -326,11 +326,10 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 
 .side-nav li a.sve {
   background: #2563EB;
-  color: #fff;
 }
 
 body.dark .side-nav a{
-  color: white;
+  color: var(--text);
 }
 
 .page-wrapper {
@@ -670,7 +669,7 @@ main h2.naslov-maina{
 }
 
 body.dark .sajt-footer  { background-color: white; }
-body.light .sajt-footer { background-color: #1a1a2e; }
+body.light .sajt-footer { background-color: var(--boja-tamna); }
 
 body.dark .sajt-footer,
 body.dark .sajt-footer a,
@@ -1084,53 +1083,6 @@ body.dark .korpa-panel {
   .interaktivno { margin-top: 90px; }
   .vrijeme { padding: 10px 15px; }
 }
-
-/*@media (prefers-color-scheme: dark) {
-  body {
-    --accent: var(--boja-akcent, #6C63FF);
-     --bg: #1a1a2e;
-    --text: #f1f1f1;
-    --nav-bg: #1a1a2e;
-    --border: #6b646e;
-  }
-  .kartica {
-    background: #0f172a;
-    border-color: #1f2937;
-  }
-  .kartica-datum {
-    color: #94a3b8;
-  }
-  .kartica-opis {
-    color: #cbd5e1;
-  }
-  .mapa {
-    background: #0f172a;
-    border-color: var(--border);
-  }
-  .aside-tekst p {
-    color: #94a3b8;
-  }
-  .aside-tekst h3 {
-    color: #f1f5f9;
-  }
-  .side-nav-naslov {
-    color: #f1f5f9;
-  }
-  .side-nav li a {
-    color: #cbd5e1;
-  }
-  .side-nav li a:hover {
-    background: #1f2937;
-  }
-  .sajt-footer {
-    background-color: #0b1220;
-  }
-}
-
-
-
-
-
 label[for="Kontakt"] h3 {
   text-align: center;
   margin-top: 140px;
@@ -1144,10 +1096,10 @@ label[for="Kontakt"] h3 {
   max-width: 100%;
   margin: 0 20px 40px 20px;
   padding: 25px;
-  background: var(--nav-bg);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(38, 36, 75, 0.315);
   border-radius: 12px;
-  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .Kontakt form {
@@ -1160,7 +1112,7 @@ label[for="Kontakt"] h3 {
 .Kontakt .kreditna {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .Kontakt label {
@@ -1195,9 +1147,8 @@ label[for="Kontakt"] h3 {
 .Kontakt input:focus,
 .Kontakt select:focus,
 .Kontakt textarea:focus {
-  outline: none;
   border-color: var(--aktivno-boja);
-  box-shadow: 0 0 0 3px rgba(43, 157, 210, 0.25);
+  box-shadow: 0 0 0 4px rgba(43, 157, 210, 0.15);
 }
 
 .Kontakt .dugmici {
@@ -1224,8 +1175,8 @@ label[for="Kontakt"] h3 {
 }
 
 .Kontakt button[type="reset"] {
-  background-color: #e5e7eb;
-  color: #374151;
+  background-color: #b0b1b6;
+  color: #2b3341;
 }
 
 .Kontakt button[type="submit"]:hover {
@@ -1234,7 +1185,7 @@ label[for="Kontakt"] h3 {
 }
 
 .Kontakt button[type="reset"]:hover {
-  background-color: #d1d5db;
+  background-color: #888a8e;
   transform: translateY(-2px);
 }
 
@@ -1288,4 +1239,38 @@ label[for="Kontakt"] h3 {
     max-width: 400px;
     margin-top: 15px;
   }
+}
+
+body.dark .Kontakt{ 
+ background: #1f2937;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+} 
+body.dark .Kontakt input, 
+body.dark .Kontakt select, 
+body.dark .Kontakt textarea { 
+  background: white; 
+  color: #111827; 
+  border: 1px solid #d1d5db; 
+} 
+
+body.dark .Kontakt input:focus,
+body.dark .Kontakt select:focus,
+body.dark .Kontakt textarea:focus {
+  border-color: var(--aktivno-boja);
+  box-shadow: 0 0 0 4px rgba(43, 157, 210, 0.2);
+}
+body.dark .Kontakt input::placeholder, 
+body.dark .Kontakt textarea::placeholder { 
+  color: #6b7280; 
+}
+.error{
+  display: block;
+  min-height: 18px;
+  margin-top: 4px;
+  color: red;
+  font-size: 12px;
+}
+body.dark .error {
+  color: #f87171;
 }
