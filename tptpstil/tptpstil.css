@@ -1126,3 +1126,166 @@ body.dark .korpa-panel {
     background-color: #0b1220;
   }
 }
+
+
+
+
+
+label[for="Kontakt"] h3 {
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: 20px;
+  font-family: var(--main-font);
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+.Kontakt {
+  max-width: 100%;
+  margin: 0 20px 40px 20px;
+  padding: 25px;
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.Kontakt form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Kontakt .info,
+.Kontakt .kreditna {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Kontakt label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 5px;
+}
+
+.Kontakt input[type="text"],
+.Kontakt input[type="email"],
+.Kontakt input[type="tel"],
+.Kontakt input[type="month"],
+.Kontakt select,
+.Kontakt textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--main-font);
+  box-sizing: border-box;
+}
+
+.Kontakt textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.Kontakt input:focus,
+.Kontakt select:focus,
+.Kontakt textarea:focus {
+  outline: none;
+  border-color: var(--aktivno-boja);
+  box-shadow: 0 0 0 3px rgba(43, 157, 210, 0.25);
+}
+
+.Kontakt .dugmici {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.Kontakt button {
+  flex: 1;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.Kontakt button[type="submit"] {
+  background-color: var(--aktivno-boja);
+  color: white;
+}
+
+.Kontakt button[type="reset"] {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.Kontakt button[type="submit"]:hover {
+  background-color: #1d7fae;
+  transform: translateY(-2px);
+}
+
+.Kontakt button[type="reset"]:hover {
+  background-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 1025px) {
+  .Kontakt {
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    padding: 40px;
+  }
+
+  .Kontakt form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .Kontakt .info {
+    grid-column: 1;
+  }
+
+  .Kontakt .kreditna {
+    grid-column: 2;
+  }
+
+  .Kontakt label[for="usluga"],
+  .Kontakt select,
+  .Kontakt label[for="tekstkutija"],
+  .Kontakt textarea,
+  .Kontakt .dugmici {
+    grid-column: 1 / span 2;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .Kontakt label[for="usluga"] {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .Kontakt label[for="tekstkutija"] {
+    text-align: center;
+  }
+
+  .Kontakt textarea {
+    min-height: 120px;
+  }
+
+  .Kontakt .dugmici {
+    max-width: 400px;
+    margin-top: 15px;
+  }
+}
