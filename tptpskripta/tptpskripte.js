@@ -40,6 +40,31 @@ korpaOverlay.addEventListener("click", zatvoriKorpu);
 // Definisanje krajnjeg datuma countdown timera
 const konacno = new Date("2026-07-01T20:00:00").getTime();
 
+// Sistemski toggle
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+
+    const prefersDark = e.matches;
+
+    // Promjena teme
+    document.body.classList.toggle("dark", prefersDark);
+
+    // Promjena logo slike
+    logo.src = prefersDark
+        ? "images/tamni-logo.png"
+        : "images/svjetli-logo.png";
+
+    // Sync checkboxova
+    toggle.checked = prefersDark;
+
+    if (toggleMob) {
+        toggleMob.checked = prefersDark;
+    }
+
+    // Ažuriraj spremljenu temu
+    localStorage.setItem("theme", prefersDark ? "dark" : "light");
+
+});
+
 // Provjera prethodno sačuvane teme
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
@@ -181,7 +206,8 @@ const telRegex = /^[0-9+\s]{6,20}$/;
 const cardRegex = /^[0-9]{16}$/;
 const cvvRegex = /^[0-9]{3,4}$/;
 
-function validateField(input, regex, message) {
+// funkcija za validaciju
+function validacija(input, regex, poruka) {
   if (!input) return true;
 
   const value = input.value.trim();
@@ -190,7 +216,7 @@ function validateField(input, regex, message) {
   const isValid = regex.test(value);
 
   if (!isValid) {
-    error.textContent = message;
+    error.textContent = poruka;
     return false;
   } else {
     error.textContent = "";
@@ -198,18 +224,19 @@ function validateField(input, regex, message) {
   }
 }
 
+// submit
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let valid = true;
 
-  valid &= validateField(ime, imeRegex, "Unesite ispravno ime");
-  valid &= validateField(prezime, imeRegex, "Unesite ispravno prezime");
-  valid &= validateField(email, emailRegex, "Unesite validan email");
-  valid &= validateField(tel, telRegex, "Unesite validan broj telefona");
-  valid &= validateField(brojK, cardRegex, "Kartica mora imati 16 brojeva");
-  valid &= validateField(cvv, cvvRegex, "CVV mora imati 3 ili 4 broja");
-  valid &= validateField(bankaime, imeRegex, "Unesite ime vlasnika kartice");
+  valid &= validacija(ime, imeRegex, "Unesite ispravno ime");
+  valid &= validacija(prezime, imeRegex, "Unesite ispravno prezime");
+  valid &= validacija(email, emailRegex, "Unesite validan email");
+  valid &= validacija(tel, telRegex, "Unesite validan broj telefona");
+  valid &= validacija(brojK, cardRegex, "Kartica mora imati 16 brojeva");
+  valid &= validacija(cvv, cvvRegex, "CVV mora imati 3 ili 4 broja");
+  valid &= validacija(bankaime, imeRegex, "Unesite ime vlasnika kartice");
 
   if (valid) {
   const params = {
@@ -232,17 +259,13 @@ form.addEventListener("submit", function (e) {
     });
 }
 });
+
+// reset
 form.addEventListener("reset", () => {
   const errors = document.querySelectorAll(".error");
 
   errors.forEach(error => {
     error.textContent = "";
   });
-
-  const success = document.getElementById("success-msg");
-  
-  if (success) {
-    success.remove();
-  }
 });
 
