@@ -10,3 +10,4 @@ Kratki opis:
 Site u stilu ticket mastera i TicketTz za prodaju ulaznica raznih dogadjaja na podrucuju Tuzle (koncerti,predstave...).
 
 Link: https://arminavdic1-ctrl.github.io/Grupa52-TPTP-2026/
+<img width="1856" height="892" alt="Pocetna" src="https://github.com/user-attachments/assets/79da6458-f7ad-4e45-af5a-1589828876c6" />
