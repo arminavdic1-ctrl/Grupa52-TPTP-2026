@@ -1,6 +1,6 @@
 :root{
-  --aktivno-boja: #2b9dd2;
-  --main-font: Helvetica, sans-serif;
+  --aktivno-boja: #2b9dd2;/* Plava boja za aktivne linkove i hover efekte */
+  --main-font: Helvetica, sans-serif; /* Glavni font stranice */
    --boja-tamna:  #111827;   
   --boja-akcent: #6C63FF;   
   --font-glavni: 'Segoe UI', system-ui, sans-serif;
@@ -10,10 +10,10 @@
   --border: black;
 }
 *{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.4s ease, 
+  box-sizing: border-box;/* Padding i border su UKLJUČENI u ukupnu sirinu/visinu elementa */
+  margin: 0;  /* Uklanja default margine svih elemenata */
+  padding: 0; /* Uklanja default padding svih elemenata */
+  transition: background-color 0.4s ease, /* Glatki prijelazi za boje – aktivira se pri promjeni teme */
               color 0.4s ease, 
               border-color 0.4s ease;
 }
@@ -22,12 +22,13 @@ body{
   background: var(--bg);
   color: var(--text);
 }
+
+/* NAVIGACIJSKA TRAKA */
 .nav{
   font-family: var(--main-font);
   font-size: 1.2rem;
-  font: bold;
-display: flex;
-position: fixed;
+ display: flex;
+position: fixed;/* Fiksirana na vrhu – ostaje vidljiva pri skrolovanju */
 top: 0;
 width: 100%;
 justify-content: space-between;
@@ -63,11 +64,12 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
  display: inline-block; 
     transition: transform 0.3s ease, color 0.3s ease;
 }
-
+/* Hover efekat na navigacijske linkove */
 .nav2 a:hover {
     color: var(--aktivno-boja); 
     transform: translateY(-4px);  
 }
+/* Klasa za trenutno aktivnu stranicu */
 .nav2 a.aktivna{
   color: var(--aktivno-boja);
   font-weight: bolder;
@@ -77,7 +79,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
   display: inline-block;
   width: 1.2em;
   height: 1.2em;
-  fill: currentColor;
+  fill: currentColor; /* Nasljeduje boju teksta */
   transition: transform 0.3s ease, fill 0.3s ease;
   cursor: pointer;
 }
@@ -96,16 +98,16 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 
 #dark-mode-toggle {
   position: absolute;
-  opacity: 0;
+  opacity: 0;  /* Nevidljiv */
   width: 0;
   height: 0;
 }
-
+/* Container za sun/moon ikonu */
 .dark-mode-label {
   display: inline-block;
   cursor: pointer;
 }
-
+/* SVG sunce/mjesec ikona */
 .dark-mode-label svg {
   display: block;
   width: 1.2em;
@@ -116,7 +118,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
   stroke-linecap: round;
   transition: transform 0.5s ease-out, stroke 0.1s ease-out;
 }
-
+/* Mjesec je inicijalno skriven */
 .moon-path {
   opacity: 0;
   transition: opacity 0.2s ease-out;
@@ -127,7 +129,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
   transition: opacity 0.2s ease-out;
 }
 
-
+/* Kad je checkbox cekiran (dark mode aktivan) – rotira ikonu */
 #dark-mode-toggle:checked + svg,
 #dark-mode-toggle-mob:checked + svg {
   transform: rotate(-360deg);
@@ -147,10 +149,10 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 #dark-mode-toggle-mob:checked + svg .sun-rays {
   opacity: 0;
 }
-
+/* Interaktivna sekcija odbrojavanja */
 .interaktivno{
   text-align: center;
-  background:linear-gradient( to left, #F97316, rgb(211, 26, 26));
+  background:linear-gradient( to left, #F97316, rgb(211, 26, 26));/* Narandzasto-crveni gradijent */
   max-width: auto;
  margin:  40px auto;
  margin-top: 140px;
@@ -166,7 +168,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 .promo-banner h2 {
     font-size: 28px;
 }
-
+/* Animacija leteci emoji */
 @keyframes leti {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-10px); }
@@ -178,7 +180,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
   vertical-align: middle;
   animation: leti 2s ease-in-out infinite;
 }
-
+/* Odbrojavanje */
 .countdown{
   display: flex;
   justify-content: center;
@@ -207,13 +209,13 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
     color: #aaaaaa;
     letter-spacing: 2px;
 }
-
+ /* animacija za pusliranje kupi-kartu dugmeta */
 @keyframes pulsiraj {
   0%   { transform: scale(1); }
   50%  { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
-
+/* Kupi-kartu dugme */
 .kupi-kartu{
   background-color: white;
   color:red;
@@ -227,6 +229,8 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, background-color 0.3s ease;
     animation: pulsiraj 2s ease-in-out infinite;
 }
+
+/* Hover: dugme se podiže i mijenja boju u pink/ljubičasto */
 .kupi-kartu:hover{
   transform: translateY(-5px);
   background:linear-gradient(to bottom right,rgb(224, 83, 205),rgb(210, 44, 160));
@@ -257,7 +261,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
   color: white;
   text-align: center;
 }
-
+/* Srednja kartica je 5% veca od ostalih naglasak */
 .stat-kartica:nth-child(2) {
   transform: scale(1.05);
 }
@@ -285,7 +289,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 
  
 
- 
+ /* Lijeva side navigacija za kartice */
 .side-nav {
   width: 220px;
   flex-shrink: 0;
@@ -331,7 +335,7 @@ box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
 body.dark .side-nav a{
   color: var(--text);
 }
-
+/* PAGE WRAPPER – Flex kontejner (sidebar + main + aside)*/
 .page-wrapper {
   display: flex;
   justify-content: space-between;
@@ -369,7 +373,7 @@ main h2.naslov-maina{
 .kartice-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 kolone jednake širine */
   gap: 1.5rem;
   min-width: 0; 
 }
@@ -378,7 +382,7 @@ main h2.naslov-maina{
 .kartica {
   background: #fff;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: hidden; /* Skriva uglove slike koji bi virili */
   border: 1px solid #e5e7eb;
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
@@ -392,13 +396,15 @@ main h2.naslov-maina{
 .kartica img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
-  display: block;
+  object-fit: cover; /* Slika se izrezuje da popuni prostor (bez iskrivljavanja) */
+  display: block; /* Uklanja prazninu ispod slike 
+   */
 }
 
 
+/* Badge s kategorijom (gornji desni ugao kartice) */
 .kategorija-badge {
-  position: absolute;
+  position: absolute;  /* Pluta iznad slike */
   top: 10px;
   right: 10px;
   z-index: 1;
@@ -444,7 +450,7 @@ main h2.naslov-maina{
   margin: 0;
 }
 
-
+/* Dugme "Pogledaj više" na kartici */
 .dugme-kartice {
   display: inline-block;
   margin-top: 8px;
@@ -465,11 +471,11 @@ main h2.naslov-maina{
   background: #1d4ed8;
   transform: translateY(-2px);
 }
-
+/* Focus stanje (pristupačnost – vidljivo pri navigaciji tabom) */
 .dugme-kartice:focus {
   outline: 2px solid var(--aktivno-boja);
 }
-
+ /* Desni aside (mapa) */
 .mapa {
   width: 260px;
   flex-shrink: 0;
@@ -498,7 +504,7 @@ main h2.naslov-maina{
   line-height: 1.5;
 }
 
-
+/* footer stranice (podnozje) */
 .sajt-footer {
   background-color: var(--boja-tamna);
   color: rgba(255, 255, 255, 0.7);
@@ -534,9 +540,9 @@ main h2.naslov-maina{
   height: 10px;
   border-radius: 50%;
   background-color: var(--boja-akcent);
-  animation: pulsiranje 2.5s ease-in-out infinite;
+  animation: pulsiranje 2.5s ease-in-out infinite; /* Beskonačno pulsira */
 }
-
+/* Animacija pulsiranja tačke */
 @keyframes pulsiranje {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.6; transform: scale(1.35); }
@@ -545,7 +551,7 @@ main h2.naslov-maina{
 .footer-logo-name {
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02em; /* Malo stisnuta slova */
   color: #fff;
 }
 
@@ -560,7 +566,7 @@ main h2.naslov-maina{
 .footer-links {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Prelamaju se u novi red na malom ekranu */
   gap: 1.5rem;
 }
 
@@ -569,7 +575,7 @@ main h2.naslov-maina{
   text-decoration: none;
   font-size: 0.82rem;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
+  text-transform: uppercase; /* Sva slova velika */
   transition: color 0.2s ease;
 }
 
@@ -682,9 +688,9 @@ body.dark .footer-links a:hover,
 body.dark .footer-social a:hover {
   color: var(--boja-akcent) !important;
 }
-
+ /* Korpa dugme */
 .korpa-dugme {
-  position: relative;
+  position: relative; /* Potrebno da badge (.korpa-broj) može biti apsolutno pozicioniran */
   background: none;
   border: none;
   cursor: pointer;
@@ -704,9 +710,9 @@ body.dark .footer-social a:hover {
 .korpa-dugme:hover {
   color: var(--aktivno-boja);
 }
-
+/* Badge s brojem artikala u korpi */
 .korpa-broj {
-  position: absolute;
+  position: absolute; /* Lebdi u gornjem desnom uglu dugmeta */
   top: -4px;
   right: -6px;
   background: var(--aktivno-boja);
@@ -715,55 +721,55 @@ body.dark .footer-social a:hover {
   font-weight: 700;
   width: 16px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: 50%; /* Krug */
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
 
-
+/* korpa overlay */
 .korpa-overlay {
   position: fixed;
-  inset: 0;
+  inset: 0; /* Pokriva cijeli ekran (top:0, right:0, bottom:0, left:0) */
   background: rgba(0, 0, 0, 0.4);
-  z-index: 1998;
-  opacity: 0;
-  pointer-events: none;
+  z-index: 1998; /* Ispod panela, iznad svega ostalog */
+  opacity: 0;  /* Inicijalno nevidljiv */
+  pointer-events: none; /* Ne prima klikove kad je skriven */
   transition: opacity 0.3s ease;
 }
-
+/* Kad je korpa otvorena – overlay postaje vidljiv */
 .korpa-overlay.aktivna {
   opacity: 1;
-  pointer-events: all;
+  pointer-events: all; /* Sada prima klikove (klik zatvara korpu) */
 }
-
+/* Korpa panel (slideout panel s desne strane)*/
 .korpa-panel {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 360px;
-  max-width: 100vw;
-  height: 100vh;
+  right: 0;  
+  width: 360px;   /* Širina panela */
+  max-width: 100vw; /* Na mobilnom može biti max 100% širine ekrana */
+  height: 100vh;  /* Puna visina ekrana */
   background: var(--bg);
   border-left: 1px solid var(--border);
-  z-index: 1999;
+  z-index: 1999; /* Iznad svega */
   display: flex;
-  flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-direction: column; /* Header, lista, footer su naslagani */
+  transform: translateX(100%); /* Inicijalno skrivena DESNO od ekrana */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); /*Glatko klizanje napomena:Ai mi je pomogo kod izabire ove tranzicije i postavljanja vrijednosrti razumijem da je custom glatko klizanje tj. brzina na pocetku u sredini i na kraju animcaije nece biti jednka nego ce biti rucno postavljena */
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
 }
-
+/* Kad je korpa otvorena – panel klizi u vidljivo područje */
 .korpa-panel.otvorena {
   transform: translateX(0);
 }
 
-
+/* Zaglavlje panela korpe */ 
 .korpa-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;/* Naslov lijevo, X desno */
   padding: 1.2rem 1.5rem;
   border-bottom: 1px solid var(--border);
 }
@@ -774,7 +780,7 @@ body.dark .footer-social a:hover {
   color: var(--text);
   margin: 0;
 }
-
+/* X dugme za zatvaranje korpe */
 .korpa-zatvori {
   background: none;
   border: none;
@@ -796,24 +802,24 @@ body.dark .footer-social a:hover {
   height: 1.2em;
 }
 
-
+/* Lista artikala u korpi napomena:Ai mi je pomogao stilizovati korpa listu */    
 .korpa-lista {
   list-style: none;
-  flex: 1;
-  overflow-y: auto;
+  flex: 1; /* Zauzima svo dostupno mjesto između headera i footera */
+  overflow-y: auto; /* Skrolanje ako ima previše artikala */
   padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
+/* Tekst kad je korpa prazna */
 .korpa-prazna {
   color: #888;
   font-size: 0.9rem;
   text-align: center;
   margin-top: 2rem;
 }
-
+/* Jedan artikal u korpi */
 .korpa-stavka {
   display: flex;
   gap: 12px;
@@ -831,7 +837,7 @@ body.dark .footer-social a:hover {
 }
 
 .korpa-stavka-info {
-  flex: 1;
+  flex: 1; /* Zauzima sav preostali prostor */
 }
 
 .korpa-stavka-naziv {
@@ -846,7 +852,7 @@ body.dark .footer-social a:hover {
   color: var(--aktivno-boja);
   margin: 0;
 }
-
+/* Dugme za uklanjanje artikla iz korpe */
 .korpa-ukloni {
   background: none;
   border: none;
@@ -857,12 +863,12 @@ body.dark .footer-social a:hover {
   transition: color 0.2s;
   flex-shrink: 0;
 }
-
+/* Hover: crvena boja (upozorenje – brisanje) */
 .korpa-ukloni:hover {
   color: #e53e3e;
 }
 
-
+/* Footer panela korpe (ukupno + naruči dugme) */
 .korpa-footer {
   padding: 1.2rem 1.5rem;
   border-top: 1px solid var(--border);
@@ -875,7 +881,7 @@ body.dark .footer-social a:hover {
   font-size: 1rem;
   color: var(--text);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* "Ukupno:" lijevo, iznos desno */
 }
 
 .korpa-kupi {
@@ -889,7 +895,7 @@ body.dark .footer-social a:hover {
   text-decoration: none;
   transition: opacity 0.2s;
 }
-
+/* Hover: malo prozirnije */
 .korpa-kupi:hover {
   opacity: 0.85;
 }
@@ -899,13 +905,15 @@ body.dark .korpa-panel {
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
 }
 
+/* mobilna navigacija napomena:AI mi je ovde pomogo kod nekih stvari*/
 
+/* Desni dio navigacije na mobilnom (korpa + hamburger) */
 .mob-desno {
-  display: none;
+  display: none;  /* Skriveno na desktopu */
   align-items: center;
   gap: 8px;
 }
-
+/* Hamburger dugme (tri horizontalne linije) */
 .hamburger {
   background: none;
   border: none;
@@ -923,42 +931,43 @@ body.dark .korpa-panel {
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Animacija u X */
 
+}
+/* Hamburger u X animacija (kad je meni otvoren) */
 .hamburger.aktivan span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg); /* Gornja linija rotira u \ */
 }
 .hamburger.aktivan span:nth-child(2) {
-  opacity: 0;
+  opacity: 0;  /* Srednja linija nestaje */
 }
 .hamburger.aktivan span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg); /* Donja linija rotira u / */
 }
-
+ /* Overlay kad je mobilni meni otvoren */
 .mob-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  top: 70px;
+  top: 70px; /* Ne prekriva navigaciju */
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 998;
+  backdrop-filter: blur(4px); /* Zamućena pozadina */
+  -webkit-backdrop-filter: blur(4px); /* Safari prefiks za backdrop blur efekat*/
+  z-index: 998; /* Ispod navigacije (1000) */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-
+/* Overlay vidljiv kad je meni aktivan */
 .mob-overlay.aktivna {
   opacity: 1;
   pointer-events: all;
 }
-
+/* Mobilni dropdown meni */
 .mob-meni {
-  display: none;
-  position: absolute;
-  top: 100%;
+  display: none;  /* Na desktopu skriven */
+  position: absolute;  /* Pozicioniran ispod navigacijske trake */
+  top: 100%;   /* Odmah ispod nava */
   left: 0;
   width: 100%;
   align-items: center;
@@ -967,11 +976,11 @@ body.dark .korpa-panel {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   z-index: 999;
-  flex-direction: column;
+  flex-direction: column; /* Linkovi su naslagani vertikalno */
   padding: 0.5rem 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  clip-path: inset(0 0 100% 0); /* Inicijalno izrezan (sakriven) */
+  transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Animacija otvaranja */
 }
 .mob-meni-dark #dark-mode-toggle-mob {
   position: absolute;
@@ -979,11 +988,12 @@ body.dark .korpa-panel {
   width: 0;
   height: 0;
 }
-
+/* Mobilni meni otvoren – otkriva se clip-path animacijom */
 .mob-meni.aktivan {
-  clip-path: inset(0 0 0% 0);
+  clip-path: inset(0 0 0% 0); /* postaje vidljiv */
 }
 
+/* Linkovi unutar mobilnog menija */
 .mob-meni a {
   display: block;
   padding: 1rem 1.5rem;
@@ -1009,17 +1019,17 @@ body.dark .korpa-panel {
   font-size: 1rem;
 }
 
-
-
+/* Responzivni dizaj napomena:Ai mi je pomogo pri izradi reponzivnog dizajna*/
+/* tablet */
 @media (max-width: 900px) {
   
-  .nav2       { display: none; }
-  .mob-desno  { display: flex; }
-  .mob-overlay { display: block; }
-  .mob-meni   { display: flex; }
-  .nav        { position: fixed; flex-wrap: wrap; }
+  .nav2       { display: none; } /* Skriva desktop navigaciju */
+  .mob-desno  { display: flex; }  /* Prikazuje mobilni desni dio (hamburger + korpa) */
+  .mob-overlay { display: block; } /* Overlay je aktivan */
+  .mob-meni   { display: flex; } /* Mobilni meni je prisutan */
+  .nav        { position: fixed; flex-wrap: wrap; } /* Nav se može prelamati */
 
- 
+  /* Grid kartica → 2 kolone umjesto 3 */
   .kartice-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1028,7 +1038,7 @@ body.dark .korpa-panel {
   .countdown { gap: 30px; }
   .vrijeme   { padding: 25px 40px; }
 
- 
+ /* Page wrapper → vertikalni layout (sidebar, main, mapa su jedan ispod drugog) */
   .page-wrapper { flex-direction: column; }
   .side-nav     { width: 100%; margin-left: 0; }
   .mapa         { 
@@ -1043,36 +1053,36 @@ body.dark .korpa-panel {
     margin-left: 15px;
   }
 
-  
+  /* Footer → grid layout za tablete */
   .footer-inner {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr; /* 3 kolone */
     grid-template-rows: auto auto auto auto;
     align-items: center;
     gap: 1.5rem 2rem;
   }
-
+ /* Pozicioniranje footer elemenata u gridu */
   .footer-brand   { grid-column: 1; grid-row: 1; align-items: flex-start; text-align: left; }
   .footer-links   { grid-column: 2; grid-row: 1; }
   .footer-social  { grid-column: 3; grid-row: 1; justify-content: flex-end; }
-  .footer-divider { grid-column: 1 / -1; grid-row: 2; }
+  .footer-divider { grid-column: 1 / -1; grid-row: 2; } /* Proteže se kroz sve kolone */
   .footer-authors { grid-column: 1 / -1; grid-row: 3; justify-content: space-around; }
   .footer-copy    { grid-column: 1 / -1; }
 }
-
+/* mobiteli */
 @media (max-width: 600px) {
   
   .kartice-grid { grid-template-columns: 1fr; }
 
- 
+ /* Odbrojavanje → prelama se u više redova */
   .countdown { gap: 10px; flex-wrap: wrap; }
   .vrijeme   { padding: 15px 20px; }
 
- 
+  /* Navigacija – manje horizontalno punjenje, manji logo */
   .nav      { padding: 0 1em; }
   .logo img { height: 70px; }
 
-
+ /* Statistike → vertikalni prikaz */
   .statistika { flex-direction: column; margin: 0 20px 20px 20px; }
 
   
@@ -1081,7 +1091,7 @@ body.dark .korpa-panel {
   
   .footer-authors { gap: 1.5rem 4rem; }
   
-
+/* Footer autori → vertikalni prikaz (jedan ispod drugog) */
   .footer-authors{
   flex-direction: column;
   align-items: flex-start;
@@ -1091,7 +1101,7 @@ body.dark .korpa-panel {
   justify-content: flex-start;
   width: 100%;
 }
-
+/* Tekst autora lijevo poravnat */
 .footer-author div{
   text-align: left;
 }
@@ -1102,7 +1112,7 @@ body.dark .korpa-panel {
 }
   
 }
-
+/* manji mobitel */
 @media (max-width: 400px) {
   .nav2 { gap: 10px; font-size: 0.9rem; }
   .nav  { padding: 0 0.5em; }
@@ -1128,6 +1138,7 @@ body.dark .korpa-panel {
   text-align: left;
 }
 }
+
 
 label[for="Kontakt"] h3 {
   text-align: center;
@@ -1321,13 +1332,6 @@ body.dark .Kontakt textarea::placeholder {
 body.dark .error {
   color: #f87171;
 }
-
-
-
-
-
-
-
 
 #Mapaa h2,
 #Galerija h2,
