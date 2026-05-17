@@ -1156,6 +1156,10 @@ label[for="Kontakt"] h3 {
   letter-spacing: 1px;
 }
 
+
+
+
+
 .Kontakt {
   max-width: 100%;
   margin: 0 20px 40px 20px;
@@ -1164,13 +1168,13 @@ label[for="Kontakt"] h3 {
   border: 1px solid #e5e7eb;
   box-shadow: 0 12px 30px rgba(38, 36, 75, 0.315);
   border-radius: 12px;
-}
+} /*Obmotava sve elemnte kontakta u zaobljenoj kutiji */
 
 .Kontakt form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
+}/*reda u redove*/
 
 .Kontakt .info,
 .Kontakt .kreditna {
@@ -1184,7 +1188,7 @@ label[for="Kontakt"] h3 {
   font-weight: 600;
   color: var(--text);
   margin-top: 5px;
-}
+}/*labeli formi uredjeni*/
 
 .Kontakt input[type="text"],
 .Kontakt input[type="email"],
@@ -1201,7 +1205,7 @@ label[for="Kontakt"] h3 {
   border-radius: 8px;
   font-family: var(--main-font);
   box-sizing: border-box;
-}
+}/*inputi uredjeni*/
 
 .Kontakt textarea {
   resize: vertical;
@@ -1213,7 +1217,7 @@ label[for="Kontakt"] h3 {
 .Kontakt textarea:focus {
   border-color: var(--aktivno-boja);
   box-shadow: 0 0 0 4px rgba(43, 157, 210, 0.15);
-}
+}/*ai izabro box shadow rgba values */
 
 .Kontakt .dugmici {
   display: flex;
@@ -1408,6 +1412,7 @@ h2.podnaslov {
 .sadrzajnav a:hover {
   color: var(--text);
 }
+/**/
 
 .Tabela {
   width: auto;
@@ -1464,6 +1469,7 @@ tr:nth-child(even) {
 .zeleno { color: #2ecc71; font-weight: bold; }
 .zuta   { color: #f1c40f; font-weight: bold; }
 .crveno { color: #e74c3c; font-weight: bold; }
+/*Kod tabele ai pomogo da tabela ne priliva preko ekrana na mobitelu dodati posebni uslovi za desktop kasnije u kodu takodje uz pomoc ai=a  */
 
 .babo {
   display: flex !important;
@@ -1473,7 +1479,7 @@ tr:nth-child(even) {
   margin: 15px 15px 40px 15px !important;
   gap: 15px;
   list-style: none;
-}
+}/*nije htjelo iz nekog razloga da proradi  poslato geminju zalijepo imprtant tagove proradilo */
 
 .babo li {
   border-radius: 12px;
@@ -1667,7 +1673,7 @@ summary h3 {
     padding: 0 8px;
     gap: 6px;
     border-radius: 20px;
-  }
+  }/*ai pomgo da razrjesim problem sa poziocioniranjem navbara na stranici sadrzaj */
 
   .sadrzajnav a {
     font-size: 11px;
@@ -1693,3 +1699,4 @@ summary h3 {
   text-decoration: underline;
 }
 .brm{visibility: hidden;}
+/*Vecina boja izabrana od strane ai alata na color palleta koje sam unjeo u njega */
