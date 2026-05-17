@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TickeTz</title>
-   <link rel="stylesheet" href="../tptpstil/tptpstil.css">
+    <link rel="stylesheet" href="../tptpstil/tptpstil.css">
      <link rel="icon" href="../images/logo.png">
     <script src="../tptpskripta/tptpskripte.js" defer></script>
 
@@ -181,7 +181,7 @@
 <nav class="side-nav"> <!-- Lijevi NAVBAR – Filter navigacija po kategorijama -->
   <h2 class="side-nav-naslov">Filtriraj događaje</h2>
   <ul>
-    <li><a href="#" class="filter-linkova aktivno" data-filter="sve">🎯 Svi događaji</a></li>
+    <li><a href="#" class="filter-linkova aktivna" data-filter="sve">🎯 Svi događaji</a></li>
     <li><a href="#" class="filter-linkova" data-filter="koncerti">🎵 Koncerti</a></li>
     <li><a href="#" class="filter-linkova" data-filter="pozorište">🎭 Pozorište</a></li>
     <li><a href="#" class="filter-linkova" data-filter="filmovi">🎬 Filmovi</a></li>
@@ -206,6 +206,7 @@
     </div>
   </article>
   </template>
+  </article>
   </section>
 
   
@@ -303,6 +304,15 @@
   </div>
 
   <ul class="korpa-lista" id="korpa-lista">
+
+    <li class="korpa-stavka">
+    <div class="korpa-stavka-info">
+      <p class="korpa-stavka-naziv">Sevdah Koncert</p>
+      <p class="korpa-stavka-cijena">25,00 KM</p>
+    </div>
+    <button class="korpa-ukloni" aria-label="Ukloni iz korpe">&times;</button>
+  </li>
+
     <li class="korpa-prazna">Korpa je prazna.</li>
   </ul>
 
