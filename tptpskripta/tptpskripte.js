@@ -284,7 +284,7 @@ const dogadaji = [
     naslov: "Kultura",
     datum: "07.07.2026",
     opis: "Hamlet",
-    slika: "../images/hamlet.jpg",
+    slika: "images/hamlet.jpg",
     kategorija: "🎭 Pozorište",
     link: "pozoriste"
   },
@@ -292,7 +292,7 @@ const dogadaji = [
     naslov: "Kultura",
     datum: "17.06.2026",
     opis: "Kralj Lir",
-    slika: "../images/lir.jpg",
+    slika: "images/lir.jpg",
     kategorija: "🎭 Pozorište",
     link: "pozoriste"
   },
@@ -300,7 +300,7 @@ const dogadaji = [
     naslov: "Kultura",
     datum: "23.08.2026",
     opis: "Hasanaginica",
-    slika: "../images/hasanaginica.jpg",
+    slika: "images/hasanaginica.jpg",
     kategorija: "🎭 Pozorište",
     link: "pozoriste"
   },
@@ -308,7 +308,7 @@ const dogadaji = [
     naslov: "Sport",
     datum: "6.07.2026",
     opis: "FK Sloboda-FK Tuzla City",
-    slika: "../images/fk.jpg",
+    slika: "images/fk.jpg",
     kategorija: "⚽ Sport",
     link: "stadion"
   },
@@ -316,7 +316,7 @@ const dogadaji = [
     naslov: "Sport",
     datum: "26.06.2026",
     opis: "Utrka na 100m",
-    slika: "../images/utrka.webp",
+    slika: "images/utrka.webp",
     kategorija: "⚽ Sport",
     link: "stadion"
   },
@@ -324,7 +324,7 @@ const dogadaji = [
     naslov: "Koncert",
     datum: "13.07.2026",
     opis: "Koncert Toše Proeskog",
-    slika: "../images/tose.webp",
+    slika: "images/tose.webp",
     kategorija: "🎵 Koncerti",
     link: "SKPC"
   },
@@ -332,7 +332,7 @@ const dogadaji = [
     naslov: "Festival",
     datum: "13.06.2026",
     opis: "Ljetni Jazz Festival",
-    slika: "../images/jazz.jpg",
+    slika: "images/jazz.jpg",
     kategorija: "🎪 Festivali",
     link: "trg"
   },
@@ -340,7 +340,7 @@ const dogadaji = [
     naslov: "Festival",
     datum: "12.12.2026",
     opis: "Zima u Tuzli",
-    slika: "../images/zima.jpg",
+    slika: "images/zima.jpg",
     kategorija: "🎪 Festivali",
     link: "trg"
   },
@@ -348,7 +348,7 @@ const dogadaji = [
     naslov: "Zabava",
     datum: "25.06.2026",
     opis: "Rambo V",
-    slika: "../images/rambo.jpg",
+    slika: "images/rambo.jpg",
     kategorija: "🎬 Filmovi",
     link: "pozoriste"
   },
@@ -356,7 +356,7 @@ const dogadaji = [
     naslov: "Koncert",
     datum: "31.12.2026",
     opis: "Doček Nove godine",
-    slika: "../images/docek.jpg",
+    slika: "images/docek.jpg",
     kategorija: "🎵 Koncerti",
     link: "trg"
   },
@@ -364,7 +364,7 @@ const dogadaji = [
     naslov: "Umjetnost",
     datum: "1.07.2026",
     opis: "Kulturna izložba",
-    slika: "../images/izlozba.webp",
+    slika: "images/izlozba.webp",
     kategorija: "📌 Ostalo",
     link: "pozoriste"
   },
@@ -372,7 +372,7 @@ const dogadaji = [
     naslov: "Muzika",
     datum: "15.08.2026",
     opis: "Noć klasične muzike",
-    slika: "../images/noc.jpg",
+    slika: "images/noc.jpg",
     kategorija: "📌 Ostalo",
     link: "pozoriste"
   }
@@ -394,7 +394,7 @@ dogadaji.forEach(dogadaj => {
 
   clone.querySelector(".kategorija-badge").textContent = dogadaj.kategorija;
 
-  clone.querySelector("a").href = `sadrzaj.html#${dogadaj.link}`;
+  clone.querySelector("a").href = `Sadrzaj.html#${dogadaj.link}`;
 
   kontejner.appendChild(clone);
 
