@@ -1129,49 +1129,6 @@ body.dark .korpa-panel {
 }
 }
 
-/*@media (prefers-color-scheme: dark) {
-  body {
-    --accent: var(--boja-akcent, #6C63FF);
-     --bg: #1a1a2e;
-    --text: #f1f1f1;
-    --nav-bg: #1a1a2e;
-    --border: #6b646e;
-  }
-  .kartica {
-    background: #0f172a;
-    border-color: #1f2937;
-  }
-  .kartica-datum {
-    color: #94a3b8;
-  }
-  .kartica-opis {
-    color: #cbd5e1;
-  }
-  .mapa {
-    background: #0f172a;
-    border-color: var(--border);
-  }
-  .aside-tekst p {
-    color: #94a3b8;
-  }
-  .aside-tekst h3 {
-    color: #f1f5f9;
-  }
-  .side-nav-naslov {
-    color: #f1f5f9;
-  }
-  .side-nav li a {
-    color: #cbd5e1;
-  }
-  .side-nav li a:hover {
-    background: #1f2937;
-  }
-  .sajt-footer {
-    background-color: #0b1220;
-  }
-}*/
-
-
 label[for="Kontakt"] h3 {
   text-align: center;
   margin-top: 140px;

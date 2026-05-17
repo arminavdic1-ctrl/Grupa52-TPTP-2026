@@ -32,6 +32,8 @@ const datum = document.getElementById("datum");
 const cvv = document.getElementById("cvv");
 const bankaime = document.getElementById("bankaime");
 
+const linkovi = document.querySelectorAll('nav a[href^="#"]');
+
 korpaToggleDesktop.addEventListener("click", otvoriKorpu);
 korpaToggle.addEventListener("click", otvoriKorpu);
 korpaZatvori.addEventListener("click", zatvoriKorpu); 
@@ -225,6 +227,7 @@ function validacija(input, regex, poruka) {
 }
 
 // submit
+if (form) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -259,8 +262,10 @@ form.addEventListener("submit", function (e) {
     });
 }
 });
+}
 
 // reset
+if (form) {
 form.addEventListener("reset", () => {
   const errors = document.querySelectorAll(".error");
 
@@ -268,4 +273,46 @@ form.addEventListener("reset", () => {
     error.textContent = "";
   });
 });
+}
+//niz objekata
+const dogadaji = [
+  {
+    naslov: "Sevdah",
+    datum: "25.11.2026",
+    opis: "Koncert sevdaha",
+    slika: "../images/sevdah.png",
+    kategorija: "🎵 Koncerti"
+  }
+];
 
+//petlja za generisanje kartice
+if (kontejner && template) {
+dogadaji.forEach(dogadaj => {
+
+  const clone = template.content.cloneNode(true);
+
+  clone.querySelector("img").src = dogadaj.slika;
+
+  clone.querySelector(".kartica-naslov").textContent = dogadaj.naslov;
+
+  clone.querySelector(".kartica-datum").textContent = dogadaj.datum;
+
+  clone.querySelector(".kartica-opis").textContent = dogadaj.opis;
+
+  clone.querySelector(".kategorija-badge").textContent = dogadaj.kategorija;
+
+  kontejner.appendChild(clone);
+
+});
+}
+
+linkovi.forEach(function(link) {
+link.onclick = function(e) {
+e.preventDefault(); 
+const targetID = this.getAttribute('href');
+const target = document.querySelector(targetID);
+  if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+      }
+});
