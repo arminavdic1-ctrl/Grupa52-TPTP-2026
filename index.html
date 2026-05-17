@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TickeTz</title>
-    <link rel="stylesheet" href="../tptpstil/tptpstil.css">
+   <link rel="stylesheet" href="../tptpstil/tptpstil.css">
      <link rel="icon" href="../images/logo.png">
     <script src="../tptpskripta/tptpskripte.js" defer></script>
 
@@ -12,17 +12,17 @@
 
 <body>
 
-<header>
+<header><!-- Zaglavlje stranice – sadrži navigaciju -->
     
-    <nav class="nav">
+    <nav class="nav"><!-- Glavna navigacijska traka -->
 
-   <div class="logo">
+   <div class="logo"><!-- Logo sa lijeve stran navbara -->
         <a href="index.html">
           <img src="../images/svjetli-logo.png" alt="Logo" id="logo">
         </a>
       </div>
 
-     
+     <!-- Mobilni desni dio korpa+hamburger   -->
       <div class="mob-desno">
         <button class="korpa-dugme" id="korpa-toggle">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
@@ -41,12 +41,13 @@
         </button>
       </div>
 
-      
+      <!--  Deskrop nav linkovi -->
       <ul class="nav2" id="nav2">
         <li><a href="index.html" class="aktivna">Početna</a></li>
         <li><a href="sadrzaj.html">Sadržaj</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
-
+         
+     <!-- Desktop korpa -->
         <li class="korpa">
           <button class="korpa-dugme" id="korpa-toggle-desktop">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
@@ -59,6 +60,7 @@
           </button>
         </li>
 
+<!-- GitHub ikona -->
         <li class="github-icon">
           <a href="https://github.com/arminavdic1-ctrl/Grupa52-TPTP-2026" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -67,6 +69,7 @@
           </a>
         </li>
 
+        <!-- Dark mode toggle-->
         <li>
           <label class="dark-mode-label" for="dark-mode-toggle">
             <input type="checkbox" id="dark-mode-toggle">
@@ -90,7 +93,7 @@
 
       <div class="mob-overlay" id="mob-overlay"></div>
 
-     
+     <!-- Mobilni meni (otvara se klikom na hamburger)-->
       <div class="mob-meni" id="mob-meni">
         <a href="index.html">Početna</a>
         <a href="sadrzaj.html">Sadržaj</a>
@@ -123,7 +126,7 @@
   </nav>
 </header>
 
-
+<!-- Promo baner interkativna sekcija brojac-->
   <section class="interaktivno">
         <h2><svg class="animirani-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <text x="50" y="57" text-anchor="middle" font-size="35">🎵</text>
@@ -132,6 +135,7 @@
 
         <p>Karte su u prodaji! Iskoristi popust od 30%</p>
 
+        <!-- Odobrojavanje (JS osvježava ove vrijednosti svakih 1 sekundu) -->
         <div class="countdown">
             <div class="vrijeme">
                 <span id="dani">69</span>
@@ -153,7 +157,8 @@
 
         <button class="kupi-kartu"><a href="#">  Kupi Kartu Sada!</a></button>
         </section>
-
+ 
+        <!-- Statistika (3 kartice s brojevima)-->
         <section class="statistika">
 <div class="stat-kartica" id="događaja">
   <span class="stat-broj" data-target="150">0+</span>
@@ -161,7 +166,7 @@
 </div>
 
  <div class="stat-kartica" id="lokacija">
-    <span class="stat-broj" data-target="25">0+</span>
+     <span class="stat-broj" data-target="25">0+</span>
     <span class="stat-tekst">Lokacija</span>
   </div>
 
@@ -171,9 +176,9 @@
   </div>
 
         </section>
-
+<!-- Glavni sadrzaj stranice (sidebar + kartice + mapa)  -->
 <div class="page-wrapper">
-<nav class="side-nav">
+<nav class="side-nav"> <!-- Lijevi NAVBAR – Filter navigacija po kategorijama -->
   <h2 class="side-nav-naslov">Filtriraj događaje</h2>
   <ul>
     <li><a href="#" class="filter-linkova sve" data-filter="sve">🎯 Svi događaji</a></li>
@@ -189,7 +194,7 @@
 <main>
   <h2 class="naslov-maina">Nadolazeći događaji</h2>
    <section class="kartice-grid" id="kartice-kontejner">
-    <template class="template-kartice">
+    <template class="template-kartice"><!-- Grid kontejner u koji JS dinamički ubacuje kartice -->
   <article class="kartica">
     <img src="../images/sevdah.png" alt="">
     <span class="kategorija-badge">🎵 Koncerti</span> 
@@ -207,14 +212,14 @@
   
 
 </main>
-<aside class="mapa">
+<aside class="mapa"><!-- Desni aside – Google mapa i tekst -->
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45283.87!2d18.6786!3d44.5342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e839c0c2f5555%3A0x400ad50861e0ab0!2sTuzla!5e0!3m2!1sbs!2sba!4v1234567890"
         width="100%" 
         height="250" 
         style="border:0;" 
         allowfullscreen="" 
-        loading="lazy"
+        loading="lazy" 
         title="Mapa Tuzle">
       </iframe>
       <div class="aside-tekst">
@@ -222,9 +227,9 @@
         <p>Otkrijte nevjerovatne lokalne događaje koji se dešavaju u Tuzli i okolini. Sve lokacije su lako dostupne javnim prevozom.</p>
       </div>
     </aside>
-</div>
+</div><!-- Kraj page-wrapper -->
 
-
+<!-- Footer sekcija-->
 <footer class="sajt-footer">
   <div class="footer-inner">
  
@@ -282,6 +287,8 @@
  
   </div>
 </footer>
+
+<!-- Korpa panel (slideout sa desne strane)-->
 <div class="korpa-overlay" id="korpa-overlay"></div>
 
 <aside class="korpa-panel" id="korpa-panel">
