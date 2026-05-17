@@ -8,3 +8,5 @@ Armin Avdić-arminavdic1-ctrl
 Tema:Prodaja ulaznica za dogadjaje na podrucju tuzle
 Kratki opis:
 Site u stilu ticket mastera i TicketTz za prodaju ulaznica raznih dogadjaja na podrucuju Tuzle (koncerti,predstave...).
+
+Link: https://arminavdic1-ctrl.github.io/Grupa52-TPTP-2026/
