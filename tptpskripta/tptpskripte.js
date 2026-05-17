@@ -34,6 +34,10 @@ const bankaime = document.getElementById("bankaime");
 
 const linkovi = document.querySelectorAll('nav a[href^="#"]');
 
+const linkoviZaFiltriranje = document.querySelectorAll('.filter-linkova');
+
+const zvuk = document.getElementById('klikZvuk');
+
 korpaToggleDesktop.addEventListener("click", otvoriKorpu);
 korpaToggle.addEventListener("click", otvoriKorpu);
 korpaZatvori.addEventListener("click", zatvoriKorpu); 
@@ -277,11 +281,100 @@ form.addEventListener("reset", () => {
 //niz objekata
 const dogadaji = [
   {
-    naslov: "Sevdah",
-    datum: "25.11.2026",
-    opis: "Koncert sevdaha",
-    slika: "../images/sevdah.png",
-    kategorija: "🎵 Koncerti"
+    naslov: "Kultura",
+    datum: "07.07.2026",
+    opis: "Hamlet",
+    slika: "../images/hamlet.jpg",
+    kategorija: "🎭 Pozorište",
+    link: "pozoriste"
+  },
+  {
+    naslov: "Kultura",
+    datum: "17.06.2026",
+    opis: "Kralj Lir",
+    slika: "../images/lir.jpg",
+    kategorija: "🎭 Pozorište",
+    link: "pozoriste"
+  },
+  {
+    naslov: "Kultura",
+    datum: "23.08.2026",
+    opis: "Hasanaginica",
+    slika: "../images/hasanaginica.jpg",
+    kategorija: "🎭 Pozorište",
+    link: "pozoriste"
+  },
+  {
+    naslov: "Sport",
+    datum: "6.07.2026",
+    opis: "FK Sloboda-FK Tuzla City",
+    slika: "../images/fk.jpg",
+    kategorija: "⚽ Sport",
+    link: "stadion"
+  },
+  {
+    naslov: "Sport",
+    datum: "26.06.2026",
+    opis: "Utrka na 100m",
+    slika: "../images/utrka.webp",
+    kategorija: "⚽ Sport",
+    link: "stadion"
+  },
+  {
+    naslov: "Koncert",
+    datum: "13.07.2026",
+    opis: "Koncert Toše Proeskog",
+    slika: "../images/tose.webp",
+    kategorija: "🎵 Koncerti",
+    link: "SKPC"
+  },
+  {
+    naslov: "Festival",
+    datum: "13.06.2026",
+    opis: "Ljetni Jazz Festival",
+    slika: "../images/jazz.jpg",
+    kategorija: "🎪 Festivali",
+    link: "trg"
+  },
+  {
+    naslov: "Festival",
+    datum: "12.12.2026",
+    opis: "Zima u Tuzli",
+    slika: "../images/zima.jpg",
+    kategorija: "🎪 Festivali",
+    link: "trg"
+  },
+  {
+    naslov: "Zabava",
+    datum: "25.06.2026",
+    opis: "Rambo V",
+    slika: "../images/rambo.jpg",
+    kategorija: "🎬 Filmovi",
+    link: "pozoriste"
+  },
+  {
+    naslov: "Koncert",
+    datum: "31.12.2026",
+    opis: "Doček Nove godine",
+    slika: "../images/docek.jpg",
+    kategorija: "🎵 Koncerti",
+    link: "trg"
+  },
+  {
+    naslov: "Umjetnost",
+    datum: "1.07.2026",
+    opis: "Kulturna izložba",
+    slika: "../images/izlozba.webp",
+    kategorija: "📌 Ostalo",
+    link: "pozoriste"
+  },
+  {
+    naslov: "Muzika",
+    datum: "15.08.2026",
+    opis: "Noć klasične muzike",
+    slika: "../images/noc.jpg",
+    kategorija: "📌 Ostalo",
+    link: "pozoriste"
   }
 ];
 
@@ -301,11 +394,12 @@ dogadaji.forEach(dogadaj => {
 
   clone.querySelector(".kategorija-badge").textContent = dogadaj.kategorija;
 
+  clone.querySelector("a").href = `sadrzaj.html#${dogadaj.link}`;
+
   kontejner.appendChild(clone);
 
 });
 }
-
 linkovi.forEach(function(link) {
 link.onclick = function(e) {
 e.preventDefault(); 
@@ -316,3 +410,75 @@ const target = document.querySelector(targetID);
     }
       }
 });
+
+//petlja za filtriranje kartica
+linkoviZaFiltriranje.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const filter = this.getAttribute('data-filter');
+
+    linkoviZaFiltriranje.forEach(l => l.classList.remove('aktivno'));
+    this.classList.add('aktivno');
+
+    const sveKartice = document.querySelectorAll('.kartica');
+
+    sveKartice.forEach(kartica => {
+
+      const kategorija = kartica
+        .querySelector('.kategorija-badge')
+        .textContent
+        .toLowerCase();
+
+      if (
+        filter === 'sve' ||
+        kategorija.includes(filter.toLowerCase())
+      ) {
+        kartica.style.display = 'block';
+      } else {
+        kartica.style.display = 'none';
+      }
+
+    });
+  });
+});
+
+//funkcionalnost za kupnju
+document.querySelectorAll('.dugmee').forEach(function(button) {
+  button.addEventListener('click', function() {
+    zvuk.currentTime = 0; 
+    zvuk.play(); 
+    const red = this.closest('tr'); 
+    const datum = red.children[0].innerText;
+    const naziv = red.children[1].innerText;
+    const cijenaText = red.children[3].innerText; 
+    
+    const listaKorpe = document.getElementById('korpa-lista');
+    
+    if (listaKorpe.querySelector('.korpa-prazna')) {
+      listaKorpe.innerHTML = '';
+    }
+        const stavka = document.createElement('li');
+    stavka.innerText = `${naziv} | ${cijenaText}`;
+    
+    listaKorpe.appendChild(stavka);
+    azurirajUkupno(cijenaText);
+  });
+});
+
+// Funkcija za ažuriranje ukupne cijene i brojača
+function azurirajUkupno(cijenaStr) {
+  const ukupnoElement = document.getElementById('korpa-ukupno');
+  const trenutnaUkupno = parseFloat(ukupnoElement.innerText.replace(' KM', '').replace(',', '.'));
+  const cijenaBroj = parseFloat(cijenaStr.replace('KM', '').replace(',', '.'));
+  const novoUkupno = trenutnaUkupno + cijenaBroj;
+  ukupnoElement.innerText = novoUkupno.toFixed(2) + ' KM';
+
+  const listaKorpe = document.getElementById('korpa-lista');
+  const brojStavki = listaKorpe.children.length;
+  const brojac = document.getElementById('korpa-broj');
+  const brojacDesktop = document.getElementById('korpa-broj-desktop');
+  brojac.innerText = brojStavki;
+  brojacDesktop.innerText = brojStavki;
+}
+
