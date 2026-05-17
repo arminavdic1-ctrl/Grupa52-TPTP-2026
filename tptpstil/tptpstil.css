@@ -1165,13 +1165,13 @@ label[for="Kontakt"] h3 {
   box-shadow: 0 12px 30px rgba(38, 36, 75, 0.315);
   border-radius: 12px;
 }
-
+/*Obmotava sve elemnte kontakta u zaobljenoj kutiji */
 .Kontakt form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
+/*reda u redove*/
 .Kontakt .info,
 .Kontakt .kreditna {
   display: flex;
@@ -1185,7 +1185,7 @@ label[for="Kontakt"] h3 {
   color: var(--text);
   margin-top: 5px;
 }
-
+/*labeli formi uredjeni*/
 .Kontakt input[type="text"],
 .Kontakt input[type="email"],
 .Kontakt input[type="tel"],
@@ -1202,7 +1202,7 @@ label[for="Kontakt"] h3 {
   font-family: var(--main-font);
   box-sizing: border-box;
 }
-
+/*inputi uredjeni*/
 .Kontakt textarea {
   resize: vertical;
   min-height: 100px;
@@ -1214,7 +1214,7 @@ label[for="Kontakt"] h3 {
   border-color: var(--aktivno-boja);
   box-shadow: 0 0 0 4px rgba(43, 157, 210, 0.15);
 }
-
+/*ai izabro box shadow rgba values */
 .Kontakt .dugmici {
   display: flex;
   flex-direction: row;
@@ -1465,6 +1465,7 @@ tr:nth-child(even) {
 .zuta   { color: #f1c40f; font-weight: bold; }
 .crveno { color: #e74c3c; font-weight: bold; }
 
+/*Kod tabele ai pomogo da tabela ne priliva preko ekrana na mobitelu dodati posebni uslovi za desktop kasnije u kodu takodje uz pomoc ai=a  */
 .babo {
   display: flex !important;
   flex-direction: column !important;
@@ -1474,7 +1475,7 @@ tr:nth-child(even) {
   gap: 15px;
   list-style: none;
 }
-
+/*nije htjelo iz nekog razloga da proradi  poslato geminju zalijepo imprtant tagove proradilo */
 .babo li {
   border-radius: 12px;
   padding: 5px;
@@ -1592,7 +1593,7 @@ summary h3 {
     margin-left: auto;
     margin-right: auto;
   }
-
+/*ai pomgo da razrjesim problem sa poziocioniranjem navbara na stranici sadrzaj */
   .sadrzajnav {
     top: 25px;
     height: 70px;
